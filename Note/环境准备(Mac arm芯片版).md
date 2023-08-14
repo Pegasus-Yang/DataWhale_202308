@@ -1,4 +1,3 @@
-
 ## 创建项目
 
 - 创建学习项目和对应的虚拟环境，用于保存后续学习代码
@@ -26,13 +25,20 @@ mim install mmcv
 
 #### 安装工具包
 
-- `pip install opencv-python pillow matplotlib seaborn tqdm pytorch-lightning mmdet -i https://pypi.tuna.tsinghua.edu.cn/simple`
+```
+pip install opencv-python pillow matplotlib seaborn tqdm pytorch-lightning mmdet -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
 - 相比教程，去掉了mmdet的版本要求，理论上安装时会安装最新版本的mmdet，可以在安装之后通过pip list查看一下具体的安装版本
 
 #### 安装MMSegmentation
 
-- 最新的MMSegmentation版本已经来到了v1.1.1，可以在学习项目的上级目录中执行`git clone https://github.com/open-mmlab/mmsegmentation.git -b v1.1.1`将对应的代码拉取下来
-- 进入学习项目的虚拟环境中，将命令行所在目录切换到上一步骤拉取的mmsegmentation项目文件夹内，执行命令`pip install -e .`将项目安装到之后需要使用的虚拟环境内。注意，如果对mmsegmentation的项目版本不确定，可以进入项目下的`mmseg/version.py`文件中查看版本号信息
+-
+最新的MMSegmentation版本已经来到了v1.1.1，可以在学习项目的上级目录中执行`git clone https://github.com/open-mmlab/mmsegmentation.git -b v1.1.1`
+将对应的代码拉取下来
+- 进入学习项目的虚拟环境中，将命令行所在目录切换到上一步骤拉取的mmsegmentation项目文件夹内，执行命令`pip install -e .`
+  将项目安装到之后需要使用的虚拟环境内。注意，如果对mmsegmentation的项目版本不确定，可以进入项目下的`mmseg/version.py`
+  文件中查看版本号信息
 
 ## 检查环境安装情况
 
@@ -59,8 +65,11 @@ print('mmsegmentation版本', mmseg.__version__)
 
 ## Matplotlib中文字体设置
 
-- 教程中给出了一套直接将字体放入依赖默认位置的修改方式，如果环境不会经常挪动的话还是挺好用的，但是项目更换环境之后就需要重新操作一次，比较麻烦，偷懒的我就找了另一个方法，每次运行之前主动添加字体，这样代码分享出去之后其他人就不需要做改动可以直接运行，两种方法各有利弊，大家可以自行取舍。
-- 首先在项目**根目录**下创建fonts文件夹，下载[字体文件](https://zihao-openmmlab.obs.cn-east-3.myhuaweicloud.com/20220716-mmclassification/dataset/SimHei.ttf)到文件夹中，之后在项目根目录创建如下python文件：
+-
+教程中给出了一套直接将字体放入依赖默认位置的修改方式，如果环境不会经常挪动的话还是挺好用的，但是项目更换环境之后就需要重新操作一次，比较麻烦，偷懒的我就找了另一个方法，每次运行之前主动添加字体，这样代码分享出去之后其他人就不需要做改动可以直接运行，两种方法各有利弊，大家可以自行取舍。
+- 首先在项目**根目录**
+  下创建fonts文件夹，下载[字体文件](https://zihao-openmmlab.obs.cn-east-3.myhuaweicloud.com/20220716-mmclassification/dataset/SimHei.ttf)
+  到文件夹中，之后在项目根目录创建如下python文件：
 
 ```python
 import os.path
@@ -76,7 +85,8 @@ def add_custom_fonts():
         font_manager.fontManager.addfont(font_file)
 ```
 
-- 之后涉及到显示Matplotlib图像的语句之前导入并运行`add_custom_fonts()`，这样就可以将字体加入到Matplotlib的字体管理器中了，例如:
+- 之后涉及到显示Matplotlib图像的语句之前导入并运行`add_custom_fonts()`
+  ，这样就可以将字体加入到Matplotlib的字体管理器中了，例如:
 
 ```python
 import matplotlib
